@@ -1,11 +1,14 @@
-fun main (args: Array<String>){
+{
+fun main (){
 
-    val num = 121
-    val reversedInteger = 0
-    val remainder: Int
-    val originalInteger: Int 
+  
+    var remainder: int
+    var originalInteger: int 
 
-    originalInteger = num 
+    var num = 121
+    var reversedInteger = 0
+
+    
 
     //reversed integer is stored in variable
     while(num != 0) {
@@ -15,8 +18,12 @@ fun main (args: Array<String>){
     } 
 
     //palindrome if originalInteger and reversedInteger are equal
-    if(originalInteger==reversedInteger)
+
+    if (originalInteger==reversedInteger)
         println("$originalInteger is a palindrome")
     else
         println("$originalInteger is not a palindrome")
+
+        
+}
 }

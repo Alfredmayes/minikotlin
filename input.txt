@@ -1,13 +1,15 @@
-fun main(args: Array<String>){
-    val number1 = 12.5
-    val number2 = 3.5
+{ 
+
+    fun main ();
+    var number1 = 12
+    var number2 = 3
     
-    var result: Double
+    var result: int
     result = number1 + number2
-    println("number1 + number2 = $result")
+    println (result = number1 + number2  )
 
     result = number1 - number2
-    println("number1 - number2 = $result")
+    println(result)
 
     result = number1 * number2
     println("number1 * number2 = $result")
@@ -18,4 +20,6 @@ fun main(args: Array<String>){
     result = number1 % number2
     println("number1 % number2 = $result")
     
+    
 }
+

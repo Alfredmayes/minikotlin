@@ -1,51 +1,7 @@
 %{
-  
-   //#include "tokens.h"
+   #include "tokens.h"
     int line = 1;
     int column = 0;
-    enum Tokens
-    {
-        TK_PLUS,
-        TK_ID,
-        TK_NUMBER,
-        TK_OR,
-        TK_INCREMENT,
-        TK_DECREMENT,
-        TK_LOGICAL_AND,
-        TK_NOT,
-        TK_LOGICAL_OR,
-        TK_EQ,
-        TK_DISTINCT,
-        TK_GREAT_THAN,
-        TK_LESS_THAN,
-        TK_GREAT_EQ_THAN,
-        TK_LESS_EQ_THAN,
-        TK_OP_RANGE,
-        TK_LEFTPARENS,
-        TK_RIGHTPARENS,
-        KW_BREAK,
-        KW_DO,
-        KW_ELSE,
-        KW_FALSE,
-        KW_FOR,
-        KW_IF,
-        KW_IN,
-        KW_RETURN,
-        KW_TRUE,
-        KW_VAR,
-        KW_INT,
-        KW_FLOAT,
-        KW_BOOLEAN,
-        KW_STRING,
-        KW_ARRAY,
-        KW_FUN,
-        KW_WHILE,
-        TK_LEFTKEY,
-        TK_RIGHTKEY,
-        TK_COMA,
-        TK_SEMICOLON
-
-    };
 %}
 
 %option noyywrap
@@ -53,38 +9,33 @@
 
 LETTER [a-zA-Z]
 DIGIT [0-9]
-
+COMMENT_BLOCK ["/*" ( {DIGIT} | {LETTER} | {\n} | {\r} | {\t} )*  "*/"]
+COMMENT_LINE ["//" .* {\n}]
+CADENA [{\"} ({DIGIT} | {LETTER} )* {\"} ] \" 
 
 %%
 
+"!" {return '!';}
+">" {return '>';}
+"<" {return '<';}
+";" {return ';';}
+"[" {return '[';}
+"]" {return ']';}
+"{" {return '{';}
+"}" {return '}';}
 "+" {return '+';}  
 "-" {return '-';}
 "*" {return '*';}
+{COMMENT_LINE} {return TK_COMMENT_LN;}
 "/" {return '/';}
 "%" {return '%';}
 "=" {return '=';}
-"," {return TK_COMA;}
-":" {return TK_SEMICOLON;}
-"++" {return TK_INCREMENT;}
-"--" {return TK_DECREMENT;}
-"&&" {return TK_LOGICAL_AND;}
-"!" {return TK_NOT;}
-"||" {return TK_LOGICAL_OR;}
-"==" {return TK_EQ;}
-"!=" {return TK_DISTINCT;}
-">" {return TK_GREAT_THAN;}
-"<" {return TK_LESS_THAN;}
-">=" {return TK_GREAT_EQ_THAN;}
-"<=" {return TK_LESS_EQ_THAN;}
-"[" {return '[';}
-"]" {return ']';}
-".." {return TK_OP_RANGE;} 
-";" {return ';';}
-"(" {return TK_LEFTPARENS;}
-")" {return TK_RIGHTPARENS;}
-"{" {return TK_LEFTKEY;}
-"}" {return TK_RIGHTKEY;}
-
+"," {return ',';}
+":" {return ':';}
+"." {return '.';}
+"(" {return TK_PAR_OPEN;}
+")" {return TK_PAR_CLOSE;}
+[\"] {return TK_COMILLA;} 
 "break" {return KW_BREAK;}
 "do" {return KW_DO;}
 "else" {return KW_ELSE;}
@@ -102,9 +53,20 @@ DIGIT [0-9]
 "string" {return KW_STRING;}
 "array" {return KW_ARRAY;}
 "while" {return KW_WHILE;}
+"println" {return KW_PRINTLN;}
+\".*\" {return TK_STRING_LT;}
 {LETTER}({DIGIT}|{LETTER}|_)* {return TK_ID;}
 {DIGIT}+("."{DIGIT}+)* {return TK_NUMBER;}
-[\n \r \t] {/*ignorar*/}
+"++" {return TK_INCREMENT;}
+"--" {return TK_DECREMENT;}
+"&&" {return TK_LOGIC_AND;}
+"||" {return TK_LOGIC_OR;}
+"==" {return TK_LOGIC_EQ;}
+"!=" {return TK_LOGIC_NOT_EQ;}
+">=" {return TK_GT_OR_EQ;}
+"<=" {return TK_LS_OR_EQ;}
+".." {return TK_RANGE;} 
 
+[\n \r \t] {/*ignorar*/}
 . {printf("caracter invalido %c en la linea: %d\n", yytext[0], yylineno);}
 %%
