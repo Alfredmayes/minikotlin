@@ -26,7 +26,7 @@ CADENA [{\"} ({DIGIT} | {LETTER} )* {\"} ] \"
 "+" {return '+';}  
 "-" {return '-';}
 "*" {return '*';}
-{COMMENT_LINE} {return TK_COMMENT_LN;}
+"//"+(.*)+[\n] {return TK_COMMENT_LN;} 
 "/" {return '/';}
 "%" {return '%';}
 "=" {return '=';}
