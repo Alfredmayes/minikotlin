@@ -1,7 +1,9 @@
 %{
+  
    #include "tokens.h"
     int line = 1;
     int column = 0;
+
 %}
 
 %option noyywrap
@@ -9,33 +11,36 @@
 
 LETTER [a-zA-Z]
 DIGIT [0-9]
-COMMENT_BLOCK ["/*" ( {DIGIT} | {LETTER} | {\n} | {\r} | {\t} )*  "*/"]
-COMMENT_LINE ["//" .* {\n}]
-CADENA [{\"} ({DIGIT} | {LETTER} )* {\"} ] \" 
+
 
 %%
-
-"!" {return '!';}
-">" {return '>';}
-"<" {return '<';}
-";" {return ';';}
-"[" {return '[';}
-"]" {return ']';}
-"{" {return '{';}
-"}" {return '}';}
+"++" {return TK_INCREMENT;}
+"--" {return TK_DECREMENT;}
+"&&" {return TK_LOGICAL_AND;}
+"||" {return TK_LOGICAL_OR;}
+"==" {return TK_EQ;}
+"!=" {return TK_DISTINCT;}
+">=" {return TK_GREAT_EQ_THAN;}
+"<=" {return TK_LESS_EQ_THAN;}
+".." {return TK_OP_RANGE;} 
 "+" {return '+';}  
 "-" {return '-';}
 "*" {return '*';}
-"//"+(.*)+[\n] {return TK_COMMENT_LN;} 
 "/" {return '/';}
 "%" {return '%';}
 "=" {return '=';}
 "," {return ',';}
 ":" {return ':';}
-"." {return '.';}
-"(" {return TK_PAR_OPEN;}
-")" {return TK_PAR_CLOSE;}
-[\"] {return TK_COMILLA;} 
+"!" {return TK_NOT;}
+">" {return '>';}
+"<" {return '<';}
+"[" {return '[';}
+"]" {return ']';}
+";" {return ';';}
+"(" {return TK_LEFTPARENS;}
+")" {return TK_RIGHTPARENS;}
+"{" {return TK_LEFTKEY;}
+"}" {return TK_RIGHTKEY;}
 "break" {return KW_BREAK;}
 "do" {return KW_DO;}
 "else" {return KW_ELSE;}
@@ -47,26 +52,18 @@ CADENA [{\"} ({DIGIT} | {LETTER} )* {\"} ] \"
 "return" {return KW_RETURN;}
 "true" {return KW_TRUE;}
 "var" {return KW_VAR;}
-"int" {return KW_INT;}
-"float" {return KW_FLOAT;}
-"boolean" {return KW_BOOLEAN;}
-"string" {return KW_STRING;}
-"array" {return KW_ARRAY;}
+"Int" {return KW_INT;}
+"Float" {return KW_FLOAT;}
+"Boolean" {return KW_BOOLEAN;}
+"String" {return KW_STRING;}
+"Array" {return KW_ARRAY;}
 "while" {return KW_WHILE;}
-"println" {return KW_PRINTLN;}
-\".*\" {return TK_STRING_LT;}
+\".*\" {return TK_LIT_STRING;}
+"//"+(.*)+[\n \r \t] {return TK_COMMENT_LINE;}
 {LETTER}({DIGIT}|{LETTER}|_)* {return TK_ID;}
 {DIGIT}+("."{DIGIT}+)* {return TK_NUMBER;}
-"++" {return TK_INCREMENT;}
-"--" {return TK_DECREMENT;}
-"&&" {return TK_LOGIC_AND;}
-"||" {return TK_LOGIC_OR;}
-"==" {return TK_LOGIC_EQ;}
-"!=" {return TK_LOGIC_NOT_EQ;}
-">=" {return TK_GT_OR_EQ;}
-"<=" {return TK_LS_OR_EQ;}
-".." {return TK_RANGE;} 
 
 [\n \r \t] {/*ignorar*/}
+
 . {printf("caracter invalido %c en la linea: %d\n", yytext[0], yylineno);}
 %%
