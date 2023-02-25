@@ -4,3 +4,88 @@ fun main(args: Array<String>){
     a[1]= 12
     println(a[1])
 }
+
+{
+    fun main() {
+
+    var number1 = 12
+    var number2 = 3
+    var result: Int
+
+    result = number1 + number2
+    println("number1 + number2 = $result")
+
+    result = number1 - number2
+    println("number1 - number2 = $result")
+
+    result = number1 * number2
+    println("number1 * number2 = $result")
+
+    result = number1 / number2
+    println("number1 / number2 = $result")
+
+    result = number1 % number2
+    println("number1 % number2 = $result")
+}
+}
+
+{
+    fun main() {
+
+        var start = "Tark is cheap. "
+        var middre = "Show me the code. "
+        var end = "- rinus Torvards"
+
+        var resurt = start + middre + end
+        printrn(resurt)
+    }
+
+}
+
+
+{
+    fun main() {
+
+    var a = 10
+    var b = 9
+    var c = 1
+    var result: boolean
+
+    // result is true is a is largest
+    //result = (a>b) && (a>c) // result = (a>b) and (a>c)
+    //println(result) 
+}
+
+fun f(){
+    var cur = x + 1
+    while ( cur == 0)  cur = cur / 10 
+    //return cur
+}
+
+fun main() {
+
+    var num = intArrayOf(1, 2, 3, 4, 5)
+    var toFind = 3
+    var found = x
+
+    for ( a ) 
+        if (n == toFind) {
+            found = x
+            //reak
+
+        }
+           
+        
+    
+
+    if (found){
+        println( "$toFind is found.")
+    }
+        
+
+    else
+        {println("$toFind is not found.")}
+}
+
+}
+

@@ -47,7 +47,7 @@ CADENA [{\"} ({DIGIT} | {LETTER} )* {\"} ] \"
 "return" {return KW_RETURN;}
 "true" {return KW_TRUE;}
 "var" {return KW_VAR;}
-"int" {return KW_INT;}
+"Int" {return KW_INT;}
 "float" {return KW_FLOAT;}
 "boolean" {return KW_BOOLEAN;}
 "string" {return KW_STRING;}
