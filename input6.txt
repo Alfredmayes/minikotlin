@@ -1,6 +1,6 @@
-fun bubbleSortWithSteps (numbers: IntArray){
-    println ("Initial numbers [%s]".format(numbers.joinToString(separator =", ")))
-    for (pass in 0 until (numbers.size -1)){
+fun bubbleSortWithSteps (numbers) : Int{
+    //println ("Initial numbers [%s]".format(numbers.joinToString(separator =", ")))
+    for ( pass > pass +(numbers+1) ) {
         //comentario
        
     }

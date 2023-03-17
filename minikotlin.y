@@ -19,13 +19,14 @@
 
 %%
 
-program: block
+program:  statement_list //block
+        |
         ;
 
-block: statement_list
+/*block: statement_list
       |
        ;
-
+*/
 statement_list: statement_list statement
                 | statement
                 ;
@@ -36,7 +37,7 @@ statement:KW_VAR TK_ID ':' type '=' statement
         | KW_FUN TK_ID TK_LEFTPARENS param_list TK_RIGHTPARENS ':' type TK_LEFTKEY statement_list TK_RIGHTKEY
         | KW_FUN TK_ID TK_LEFTPARENS param_list TK_RIGHTPARENS
         | TK_ID '=' statement
-        | TK_ID TK_LEFTPARENS statement TK_RIGHTPARENS
+        //| TK_ID TK_LEFTPARENS statement TK_RIGHTPARENS
         | KW_FOR TK_LEFTPARENS statement TK_RIGHTPARENS TK_LEFTKEY statement_list TK_RIGHTKEY
         | KW_WHILE TK_LEFTPARENS statement TK_RIGHTPARENS TK_LEFTKEY statement_list  TK_RIGHTKEY
         | KW_DO TK_LEFTKEY statement_list TK_RIGHTKEY KW_WHILE TK_LEFTPARENS expression TK_RIGHTPARENS
@@ -73,14 +74,15 @@ unary_expr: TK_NOT term
 
 term: TK_COMMENT_LINE
     | TK_ID '[' term ']'
-    | '(' expression ')'
+    | TK_LEFTPARENS expression TK_RIGHTPARENS
     | TK_NUMBER
     | TK_ID
     | TK_LIT_STRING
     ;
 
 param_list: expression
-            ;
+           |
+           ;
 
 
 type: KW_INT  

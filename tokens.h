@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.8.2.  */
+/* A Bison parser, made by GNU Bison 3.5.1.  */
 
 /* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -31,9 +31,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
-   especially those whose name start with YY_ or yy_.  They are
-   private implementation details that can be changed or removed.  */
+/* Undocumented macros, especially those whose name start with YY_,
+   are private implementation details.  Do not rely on them.  */
 
 #ifndef YY_YY_TOKENS_H_INCLUDED
 # define YY_YY_TOKENS_H_INCLUDED
@@ -45,53 +44,48 @@
 extern int yydebug;
 #endif
 
-/* Token kinds.  */
+/* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
   {
-    YYEMPTY = -2,
-    YYEOF = 0,                     /* "end of file"  */
-    YYerror = 256,                 /* error  */
-    YYUNDEF = 257,                 /* "invalid token"  */
-    TK_ID = 258,                   /* TK_ID  */
-    TK_NUMBER = 259,               /* TK_NUMBER  */
-    TK_INCREMENT = 260,            /* TK_INCREMENT  */
-    TK_DECREMENT = 261,            /* TK_DECREMENT  */
-    TK_LOGICAL_AND = 262,          /* TK_LOGICAL_AND  */
-    TK_NOT = 263,                  /* TK_NOT  */
-    TK_LOGICAL_OR = 264,           /* TK_LOGICAL_OR  */
-    TK_EQ = 265,                   /* TK_EQ  */
-    TK_DISTINCT = 266,             /* TK_DISTINCT  */
-    TK_GREAT_EQ_THAN = 267,        /* TK_GREAT_EQ_THAN  */
-    TK_LESS_EQ_THAN = 268,         /* TK_LESS_EQ_THAN  */
-    TK_OP_RANGE = 269,             /* TK_OP_RANGE  */
-    TK_LEFTPARENS = 270,           /* TK_LEFTPARENS  */
-    TK_RIGHTPARENS = 271,          /* TK_RIGHTPARENS  */
-    KW_BREAK = 272,                /* KW_BREAK  */
-    KW_DO = 273,                   /* KW_DO  */
-    KW_ELSE = 274,                 /* KW_ELSE  */
-    KW_FALSE = 275,                /* KW_FALSE  */
-    KW_FOR = 276,                  /* KW_FOR  */
-    KW_IF = 277,                   /* KW_IF  */
-    KW_IN = 278,                   /* KW_IN  */
-    KW_RETURN = 279,               /* KW_RETURN  */
-    KW_TRUE = 280,                 /* KW_TRUE  */
-    KW_VAR = 281,                  /* KW_VAR  */
-    KW_INT = 282,                  /* KW_INT  */
-    KW_FLOAT = 283,                /* KW_FLOAT  */
-    KW_BOOLEAN = 284,              /* KW_BOOLEAN  */
-    KW_STRING = 285,               /* KW_STRING  */
-    KW_ARRAY = 286,                /* KW_ARRAY  */
-    KW_FUN = 287,                  /* KW_FUN  */
-    KW_WHILE = 288,                /* KW_WHILE  */
-    TK_LEFTKEY = 289,              /* TK_LEFTKEY  */
-    TK_RIGHTKEY = 290,             /* TK_RIGHTKEY  */
-    KW_CHAR = 291,                 /* KW_CHAR  */
-    TK_COMMENT_LINE = 292,         /* TK_COMMENT_LINE  */
-    TK_LIT_STRING = 293            /* TK_LIT_STRING  */
+    TK_ID = 258,
+    TK_NUMBER = 259,
+    TK_INCREMENT = 260,
+    TK_DECREMENT = 261,
+    TK_LOGICAL_AND = 262,
+    TK_NOT = 263,
+    TK_LOGICAL_OR = 264,
+    TK_EQ = 265,
+    TK_DISTINCT = 266,
+    TK_GREAT_EQ_THAN = 267,
+    TK_LESS_EQ_THAN = 268,
+    TK_OP_RANGE = 269,
+    TK_LEFTPARENS = 270,
+    TK_RIGHTPARENS = 271,
+    KW_BREAK = 272,
+    KW_DO = 273,
+    KW_ELSE = 274,
+    KW_FALSE = 275,
+    KW_FOR = 276,
+    KW_IF = 277,
+    KW_IN = 278,
+    KW_RETURN = 279,
+    KW_TRUE = 280,
+    KW_VAR = 281,
+    KW_INT = 282,
+    KW_FLOAT = 283,
+    KW_BOOLEAN = 284,
+    KW_STRING = 285,
+    KW_ARRAY = 286,
+    KW_FUN = 287,
+    KW_WHILE = 288,
+    TK_LEFTKEY = 289,
+    TK_RIGHTKEY = 290,
+    KW_CHAR = 291,
+    TK_COMMENT_LINE = 292,
+    TK_LIT_STRING = 293
   };
-  typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
@@ -104,8 +98,6 @@ typedef int YYSTYPE;
 
 extern YYSTYPE yylval;
 
-
 int yyparse (void);
-
 
 #endif /* !YY_YY_TOKENS_H_INCLUDED  */
